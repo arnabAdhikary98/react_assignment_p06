@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greeting Component</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+  </body>
+
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    //created a component called Greeting which take two props called 'message' and 'name'
+    function Greeting({message , name}){
+        return (
+                <p style={{fontSize : '30px'}}>
+                {message}, {name}
+                </p>
+        )
+    }
+
+    //gave styling to the div so it looks more user friendly
+    const divStyle = {
+        border : '1px solid black',
+        height : '200px',
+        width : '800px',
+        display : 'grid',
+        gridTemplateColumns : "repeat(3, 1fr)",
+        justifyContent : 'center',
+        alignItems : 'center',
+        texAlign : 'center',
+        backgroundColor : 'black',
+        color : 'white',
+        marginTop : '15%',
+        marginLeft : '23%'
+    }
+
+    // passed the Greeting Component
+    let greet = (
+        <div style={divStyle}>
+        <Greeting message = 'Hello' name = 'Alice' />
+        <Greeting message = "Let's Go" name = 'Alex' />
+        <Greeting message = "Happy Birthday" name = 'Rayan' />
+        </div>
+    )
+
+    let rootEle = document.querySelector('#root')
+    //rendering it to the ReactDOM
+    ReactDOM.createRoot(rootEle).render(greet)
+
+  </script>
+</html>
